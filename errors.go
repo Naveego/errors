@@ -1,4 +1,4 @@
-package types
+package errors
 
 // Error is the main error type that will be used by components of the
 // pipeline.  It adds a machine readable code that can be used to deteremine
