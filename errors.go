@@ -1,5 +1,7 @@
 package errors
 
+import "fmt"
+
 // Error is the main error type that will be used by components of the
 // pipeline.  It adds a machine readable code that can be used to deteremine
 // the type of error.
@@ -30,4 +32,10 @@ func New(message string) error {
 // NewWithCode returns a error with the given code
 func NewWithCode(code int, message string) error {
 	return Error{Code: code, Message: message}
+}
+
+// NewWithCodef returns an error with formatting
+func NewWithCodef(code int, message string, args ...interface{}) error {
+	errMsg := fmt.Sprintf(message, args...)
+	return NewWithCode(code, errMsg)
 }
